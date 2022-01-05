@@ -18,13 +18,13 @@
 
     - name: "Unarchive the downloaded file"
       unarchive:
-        src: "/tmp/node_exporter-{{ version }}.tar.gz"
+        src: "/tmp/node_exporter-{{ version_node }}.tar.gz"
         dest: /tmp/
         remote_src: true
 
     - name: "Copy the node_exporter to /usr/local/bin"
       copy:
-        src: "/tmp/node_exporter-{{ version }}/node_exporter"
+        src: "/tmp/node_exporter-{{ version_node }}/node_exporter"
         dest: /usr/local/bin/
         owner: node_exporter
         group: node_exporter
