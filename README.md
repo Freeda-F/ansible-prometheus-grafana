@@ -87,24 +87,26 @@ http://<monitor_IP>:3000
 
 ![image](https://user-images.githubusercontent.com/93197553/148272891-a77e9adf-3b7c-4f0c-8912-56687a27905c.png)
 
-## Result
+## Results
 
-### Node Exporter - 
+### Node Exporter 
+
+ansible-playbook -i hosts install-node-exp.yml
 ![image](https://user-images.githubusercontent.com/93197553/148274787-17ee7af6-b7e6-44c6-ae78-a32b66a9661e.png)
 
 ![image](https://user-images.githubusercontent.com/93197553/148275549-0c315fe0-11dc-401e-bd3d-ba7b9cd903f2.png)
 
 ### prometheus
 
+ansible-playbook -i hosts install-prometheus.yml
 ![image](https://user-images.githubusercontent.com/93197553/148275719-36843a81-b8cb-4cc0-a8b6-e6ea41050d79.png)
 
 ![image](https://user-images.githubusercontent.com/93197553/148276026-1800c373-247a-4b76-8bb6-ff521d01c7a2.png)
 
 
 ### Grafana
-
+ansible-playbook -i hosts install-grafana.yml
 ![image](https://user-images.githubusercontent.com/93197553/148277817-b1163188-1ec9-49d5-9d63-eef6079edd93.png)
-
 
 ![image](https://user-images.githubusercontent.com/93197553/148277919-b19a7693-aab3-4b0a-8359-fa693082144b.png)
 
