@@ -1,0 +1,46 @@
+---
+- name: "Install and config node exporters"
+  hosts: nodes
+  become: true
+  vars_files:
+    - prometheus-project.vars
+  tasks:
+
+    - name: "Creating a user for node_exporter"
+      user:
+        name: node_exporter
+        shell: /sbin/false
+
+    - name: "Download node_exporter URL - .tar.gz file"
+      get_url:
+        url: "{{ node_url }}"
+        dest: /tmp/
+
+    - name: "Unarchive the downloaded file"
+      unarchive:
+        src: "/tmp/node_exporter-{{ version }}.tar.gz"
+        dest: /tmp/
+        remote_src: true
+
+    - name: "Copy the node_exporter to /usr/local/bin"
+      copy:
+        src: "/tmp/node_exporter-{{ version }}/node_exporter"
+        dest: /usr/local/bin/
+        owner: node_exporter
+        group: node_exporter
+        mode: 0755
+        remote_src: true
+
+    - name: "Copy the node_exporter.service to systemd"
+      copy:
+        src: node_exporter.service
+        dest: /etc/systemd/system/node_exporter.service
+        owner: node_exporter
+        group: node_exporter
+
+    - name: "Start node_exporter service"
+      systemd:
+        state: started
+        name: node_exporter
+        daemon_reload: yes
+        enabled: yes
