@@ -1,0 +1,35 @@
+---
+- name: "Install and config grafana"
+  hosts: monitor
+  become: true
+  vars_files:
+    - prometheus-project.vars
+  tasks:
+
+    - name: "Copy the grafana.repo to /etc/yum.repos.d/grafana.repo"
+      copy:
+        src: grafana.repo
+        dest: /etc/yum.repos.d/grafana.repo
+
+    - name: "Install grafana from repo"
+      yum:
+        name: grafana
+        state: present
+
+    - name: "Start grafana service"
+      systemd:
+        state: started
+        name: grafana-server
+        daemon_reload: yes
+        enabled: yes
+
+    - name: create prometheus datasource
+      community.grafana.grafana_datasource:
+        name: prometheus
+        ds_type: prometheus
+        url: "http://{{monitor_ip}}:3000"
+        grafana_user: "{{ grafana_user }}"
+        grafana_password: "{{ grafana_password }}"
+        ds_url: "http://{{monitor_ip}}:9090"
+        access: proxy
+        tls_skip_verify: true
