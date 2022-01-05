@@ -31,6 +31,21 @@ We will be deploying this project using 3 instances.
 - Install Ansible on your machine (ansible master).
 - 3 instances for installing node exporter, prometheus and grafana applications.
 
+## Variables used
+
+```
+node_url: "https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz" ## binary for node-exporter
+version_node: "1.3.1.linux-amd64" ## version for node-exporter
+prometheus_url: "https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz" ## binary for prometheus
+version_prom: "2.32.1.linux-amd64" ## version for prometheus
+node_ip1: "3.108.3.4" ## public IP for node-exporter-1
+node_ip2: "13.233.3.4" ## public IP for node-exporter-2
+monitor_ip: "3.110.3.4" ## public IP for prometheus and grafana installed server
+grafana_user: admin ## grafana username
+grafana_password: admin123 ## grafana password
+
+```
+
 ## Provisioning
 
 #### Install and configure - Node Exporters
