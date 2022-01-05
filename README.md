@@ -103,5 +103,11 @@ http://<monitor_IP>:3000
 
 ### Grafana
 
+![image](https://user-images.githubusercontent.com/93197553/148277817-b1163188-1ec9-49d5-9d63-eef6079edd93.png)
+
+
+![image](https://user-images.githubusercontent.com/93197553/148277919-b19a7693-aab3-4b0a-8359-fa693082144b.png)
+
+![image](https://user-images.githubusercontent.com/93197553/148278012-ed9e9373-10ba-486c-b827-4e119eeb81d1.png)
 
 
