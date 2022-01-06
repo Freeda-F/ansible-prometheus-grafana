@@ -8,6 +8,8 @@ Grafana is a web application that gives you visualization tools. In a nutshell, 
 
 In this demo, we will be creating an Ansible playbook to automate the installation of grafana, node_exporter, and Prometheus into an EC2 instance.
 
+This same project has been also done using [ansible roles](https://github.com/Freeda-F/ansible-prometheus-roles.git)
+
 ## Architecture
 
 This is a monitoring project which consists of the following components:
